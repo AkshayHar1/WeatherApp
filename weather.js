@@ -37,9 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=b41ec3be35c7dac8aabbc21ba253137a`).then((data)=>data.json()).then((data)=>{
 
       const weatherDescription = data.weather[0].main;
-        tem.innerHTML= data.main.temp;
+        temp= data.main.temp;
+        console.log(temp);
         const humidity = data.main.humidity;
         const windSpeed = data.wind.speed;
+        deg=Math.round((temp-32)*(5/9))
+        tem.innerHTML=deg
         wet.innerHTML=weatherDescription
         humi.innerHTML=humidity
         speed.innerHTML=windSpeed
